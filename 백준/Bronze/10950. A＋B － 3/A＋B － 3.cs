@@ -1,21 +1,26 @@
 using System;
+using System.Text;
 
-namespace for문2
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        int t = int.Parse(Console.ReadLine());
+        string[] input;
+        int a, b, val;
+        StringBuilder output = new StringBuilder();
+            
+        for(int i = 0; i < t; i++)
         {
-            int t = int.Parse(Console.ReadLine());
-
-            for (int i = 0; i < t; i++)
-            {
-                string[] s = Console.ReadLine().Split();
-                int num1 = int.Parse(s[0]);
-                int num2 = int.Parse(s[1]);
-
-                Console.WriteLine(num1 + num2);
-            }
+            input = Console.ReadLine().Split();
+            a = int.Parse(input[0]);
+            b = int.Parse(input[1]);
+            
+            val = a + b;
+            
+            output.AppendLine(val.ToString());
         }
+        
+        Console.Write(output);
     }
 }
