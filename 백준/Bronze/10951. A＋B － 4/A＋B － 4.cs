@@ -1,24 +1,28 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Baekjoon
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        string input;
+        string[] num;
+        int a, b;
+        
+        for( ; ; )
         {
-            while (true)
+            input = Console.ReadLine();
+            
+            if(input == null)
             {
-                string input = Console.ReadLine();
-                if (input == null) break;
-                string[] n = input.Split();
-                int x = int.Parse(n[0]);
-                int y = int.Parse(n[1]);
-                Console.WriteLine(x+y);
+                break;
             }
+            
+            num = input.Split();
+            
+            a = int.Parse(num[0]);
+            b = int.Parse(num[1]);
+            
+            Console.WriteLine(a + b);
         }
     }
 }
