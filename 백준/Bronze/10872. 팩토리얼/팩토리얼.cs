@@ -1,24 +1,21 @@
-using System;
-
-class Program
+class BJ10872
 {
     static void Main(string[] args)
     {
-        int n = int.Parse(Console.ReadLine());
+        int getNum = int.Parse(Console.ReadLine());
         int val = 1;
         
-        if(n > 0)
+        if(getNum == 0)
         {
-            for(int i = 1; i <= n; i++)
-            {
-                val = val * i;
-            }
-            
-            Console.Write(val);
+            Console.WriteLine(val);
         }
         else
         {
-            Console.Write(val);
+            for(int i = 1; i <= getNum; i++)
+            {
+                val = val * i;
+            }
+            Console.WriteLine(val);
         }
     }
 }
