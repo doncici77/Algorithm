@@ -1,24 +1,23 @@
 class Program
 {
     static void Main(string[] args)
+{
+    string[] line = Console.ReadLine().Split();
+
+    int A = int.Parse(line[0]);
+    int B = int.Parse(line[1]);
+
+    if (A < B)
     {
-        int a,b;
-        string[] input = Console.ReadLine().Split();
-        
-        a = int.Parse(input[0]);
-        b = int.Parse(input[1]);
-        
-        if(a == b)
-        {
-            Console.Write("==");
-        }
-        else if(a > b)
-        {
-            Console.Write(">");
-        }
-        else
-        {
-            Console.Write("<");
-        }
+        Console.WriteLine("<");
     }
+    else if(A > B)
+    {
+        Console.WriteLine(">");
+    }
+    else
+    {
+        Console.WriteLine("==");
+    }
+}
 }
