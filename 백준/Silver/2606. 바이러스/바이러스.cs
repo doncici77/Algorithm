@@ -3,11 +3,10 @@ class Program
     static int computerCount; // 컴퓨터의 수
     static int edgeCount; // 간선의 수
     static int startVertex = 1; // 감염 시작 정점(컴퓨터)
-    static int virusCount = -1; // 바이러스에 감염된 컴퓨터의 수
 
     static List<int>[] edgeData = new List<int>[107]; // 인접 리스트
 
-    static bool[] isVisited = new bool[107]; // 방문 여부
+    static bool[] isVisited = new bool[107]; // 방문 여부   
 
 
     public static void Main(string[] args)
@@ -16,7 +15,7 @@ class Program
         edgeCount = int.Parse(Console.ReadLine());
 
         #region 그래프 생성
-        for(int i = 0; i < edgeData.Length; i++) // 리스트 초기화
+        for (int i = 0; i < edgeData.Length; i++) // 리스트 초기화
         {
             edgeData[i] = new List<int>();
         }
@@ -32,29 +31,23 @@ class Program
         }
         #endregion
 
-        DFS(startVertex);
-
-        Console.WriteLine(virusCount.ToString());
+        Console.WriteLine((DFS(startVertex) - 1).ToString());
     }
 
-    static void DFS(int currentVisit)
+    static int DFS(int currentVisit)
     {
-        if (isVisited[currentVisit])
-        {
-            return;
-        }
-
         isVisited[currentVisit] = true;
-        virusCount++;
 
-        for (int i = 0; i < edgeData[currentVisit].Count; i++)
+        int virusCount = 1; // 바이러스에 감염된 컴퓨터의 수
+        
+        foreach (int next in edgeData[currentVisit])
         {
-            int checkVisit = edgeData[currentVisit][i];
-
-            if (!isVisited[checkVisit])
+            if (isVisited[next] == false)
             {
-                DFS(checkVisit);
+                virusCount += DFS(next);
             }
         }
+
+        return virusCount;
     }
 }
