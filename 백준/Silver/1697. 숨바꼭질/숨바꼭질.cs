@@ -1,6 +1,5 @@
 class BJ1697
 {
-    static int[] map = new int[100_007]; // 맵
     static int N; // 언니
     static int K; // 동생
 
